@@ -7,35 +7,107 @@
 <h1>Hidden thingsby Sai Manideep Allu</h1>
 <h2>Getting input</h2>
 
+
+
+
+
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+
+
+
+    <label for="form1_Secret">Enter the secret word</label>
+    <input type ="password" id="form1_Secret" name="form1_secret_word" value="Secret"> <br>
+
+
+
+
+
+    <label for="form1_guess">Enter a guess</label>
+    <input type ="text" id="form1_guess" name="form1_guess"> <br>
+
+
+
+
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+  
+
+
+
+
 </form>
 
 
-<p id="result">This text will be replaced </p>
 
-<script> 
 
-function resolveForm (){
+<p id="result">correct:0  wrong:0 </p>
+
+
+
+
+
+    <script> 
+        var correct =0;
+
+        var wrong = 0;
+
+        out=document.getElementById("result");
+
+    function processGuess(){
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    password = document.getElementById("Secret").value
+    text = document.getElementById("form1_guess").value
+    confirmed = confirm("Are these the values? "+password+" and "+text)
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+
+    if(password==text){
+        correct = correct + 1;
+        alert("Congratulations");
+        out.innerHTML = "Congratulations"
+     } 
+    else {
+        wrong = wrong + 1;
+        alert("Sorry");
+        out.innerHTML = "Sorry"
+    }
+}
+
+
+
+
+</script>
+
+
+
+<div class="container">
+
+    <img id="plants" src="abelia.jpg" width="200" height="200" onclick="rotateImage()">
+    
+</div>
+<script>
+    var currentImage=0;
+function rotateImage()
+{
+   switch(currentImage)
+    {
+     case 0:
+        currentImage=currentImage+1;
+        document.getElementById("plants").src= "libertia.jpg"
+        break;
+     case 1:
+        currentImage=currentImage+1;
+        document.getElementById("plants").src= "UmbrellaPine.jpg"
+        break;
+     case 2:
+        currentImage=currentImage+1;
+        document.getElementById("plants").src= "abelia.jpg"
+     break;
     }
 }
 </script>
+
 
 </body>
 </html> 
