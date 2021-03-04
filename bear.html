@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>bear page</title>
+ </head>
+<body>
+
+<h2>Sai Manideep Allu builds a bear</h2>
+
+<form>
+    <input type ="checkbox" id="check_first" name="check_first" value="hat">
+    <label for="check_first">hat </label><br>
+
+    <input type ="checkbox" id="checkboxsecond" name="checkboxsecond" value="scarf">
+    <label for="checkboxsecond">scarf </label><br>
+
+    <input type ="checkbox" id="checkboxthird" name="checkboxthird" value="shirt">
+    <label for="checkboxthird">shirt </label><br>
+
+    <input type="button" onclick="startBear()" value="Start a bear" class="btn btn-primary">
+    <br>
+</form>
+
+<form>
+    <label for = "property">Enter a property</label>
+    <input type ="text" id = "property" name ="property" value ="color"><br>
+
+    <label for = "valueEntered">Enter a value</label>
+    <input type ="text" id = "valueEntered" name ="valueEntered"><br>
+
+    <input type ="button" onclick="updatebear()" value ="Update the bear" class="btn btn-primary">
+</form>
+
+
+<p id="bearResult1">This text will be replaced </p>
+<script> 
+
+var my_bear = {}
+function startBear(){
+    my_bear = {}
+    if(document.getElementById("check_first").checked == true)
+        my_bear['hat']='true'
+    else 
+    my_bear['hat']='false'
+
+    if(document.getElementById("checkboxsecond").checked == true)
+        my_bear['scarf']='true'
+    else 
+        my_bear['scarf']='false'
+
+    if(document.getElementById("checkboxthird").checked == true)
+        my_bear['shirt']='true'
+    else 
+        my_bear['shirt']='false'
+    document.getElementById("bearResult1").innerHTML=JSON.stringify(my_bear)
+    console.log(my_bear)
+}
+function updatebear(){
+        property = document.getElementById("property").value 
+        valueEntered = document.getElementById("valueEntered").value
+        my_bear[property]=valueEntered
+        document.getElementById("bearResult1").innerHTML=JSON.stringify(my_bear)
+        console.log(my_bear)
+    }
+</script>
+</div>
+</body>
+</html> 
